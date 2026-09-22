@@ -52,7 +52,7 @@ const FAQSection = () => {
               className="rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden"
             >
               <button
-                onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
                 className="w-full flex items-center justify-between p-5 text-left hover:bg-white/[0.02] transition-colors"
               >
                 <span className="text-white font-medium">{faq.question}</span>
