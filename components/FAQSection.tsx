@@ -16,8 +16,8 @@ const FAQSection = () => {
     { question: "What payment processors do you integrate?", answer: "We primarily use Stripe, but also support PayPal, Square, and other major providers. We handle all setup and PCI compliance." },
     { question: "Can I update the menu/content myself?", answer: "Yes! We build an easy admin panel where you can update menus, prices, photos, and hours without any coding." },
     { question: "What's included in ongoing support?", answer: "All plans include hosting, SSL, security updates, backups, and email support. Professional plans include priority support and monthly strategy calls." },
-    { question: "Is there a contract or can I cancel anytime?", answer: "No long-term contracts! All plans are month-to-month. You can cancel anytime. We also offer a 30-day money-back guarantee." },
-    { question: "Do you help with Google and online marketing?", answer: "Yes! Every website includes basic SEO and Google Business Profile setup. Professional plans include advanced SEO and email marketing." },
+    { question: "Is there a contract or can I cancel anytime?", answer: "No long-term contracts! All plans are month-to-month. You can cancel anytime." },
+    { question: "Do you help with Google and online marketing?", answer: "Yes! Every website includes basic SEO and Google Business Profile setup." },
   ];
 
   return (

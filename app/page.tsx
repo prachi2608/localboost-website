@@ -12,6 +12,7 @@ import CTABanner from "@/components/CTABanner";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import { RequirementsSection } from "@/components/sections/requirements-section";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <FeaturesShowcase />
       <IndustriesSection />
       <ProcessSection />
+      <RequirementsSection />
       <PortfolioSection />
       <PricingSection />
       <TestimonialsSection />

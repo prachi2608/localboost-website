@@ -2,72 +2,115 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Star } from "lucide-react";
+import { Heart, Clock, Target, Sparkles, Store } from "lucide-react";
 
 const TestimonialsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const testimonials = [
-    { name: "Marco Rossi", role: "Owner, Marco's Pizzeria", content: "Our online orders went up 300% in the first month! The QR code ordering system is a game-changer.", rating: 5, avatar: "MR", gradient: "from-orange-500 to-red-500" },
-    { name: "Sarah Chen", role: "Founder, Glow Beauty Spa", content: "The booking system is incredible. We went from constant phone calls to 80% online bookings.", rating: 5, avatar: "SC", gradient: "from-pink-500 to-rose-500" },
-    { name: "James Miller", role: "Manager, FitZone Gym", content: "Professional website, easy membership sign-ups. Our member retention increased by 45%.", rating: 5, avatar: "JM", gradient: "from-violet-500 to-purple-500" },
-    { name: "Lisa Park", role: "Owner, Sweet Bloom Bakery", content: "The custom order system is exactly what we needed. Pre-orders tripled!", rating: 5, avatar: "LP", gradient: "from-amber-500 to-orange-500" },
-    { name: "David Thompson", role: "Owner, Thompson Auto Shop", content: "New customer inquiries doubled and the payment system saves us hours every week.", rating: 5, avatar: "DT", gradient: "from-cyan-500 to-blue-500" },
-    { name: "Maria Garcia", role: "Owner, Casa Verde Restaurant", content: "They handled everything — website, QR codes, ordering, email marketing. Like a full tech team.", rating: 5, avatar: "MG", gradient: "from-green-500 to-emerald-500" },
-  ];
-
   return (
-    <section id="testimonials" ref={ref} className="py-24 bg-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="testimonials" ref={ref} className="py-24 bg-black relative overflow-hidden">
+      {/* Decorative quotes */}
+      <div className="absolute top-20 left-10 text-9xl text-white/5 font-serif">"</div>
+      <div className="absolute bottom-20 right-10 text-9xl text-white/5 font-serif">"</div>
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="relative"
         >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-500/10 border border-violet-500/20 text-sm text-violet-400 mb-4"
-          >
-            <Star className="w-4 h-4" />
-            Testimonials
-          </motion.div>
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Loved by Local Business Owners
-          </h2>
-        </motion.div>
+          {/* Subtle gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-transparent to-cyan-500/5 rounded-3xl blur-3xl" />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((t, i) => (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="relative bg-gradient-to-br from-white/[0.02] to-white/[0.01] border border-white/[0.06] rounded-3xl p-8 md:p-12"
+          >
+            {/* Badge */}
             <motion.div
-              key={t.name}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: -10 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.3 + i * 0.1 }}
-              className="p-6 rounded-2xl bg-gradient-to-br from-white/[0.02] to-white/[0.01] border border-white/[0.06] hover:border-white/[0.1] transition-all duration-300"
+              transition={{ delay: 0.3 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-500/10 border border-violet-500/20 text-sm text-violet-400 mb-6"
             >
-              <div className="flex gap-1 mb-4">
-                {[...Array(t.rating)].map((_, j) => (
-                  <Star key={j} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                ))}
-              </div>
-              <p className="text-gray-300 text-sm mb-6">"{t.content}"</p>
-              <div className="flex items-center gap-3">
-                <div
-                  className={`w-12 h-12 rounded-xl bg-gradient-to-br ${t.gradient} flex items-center justify-center text-white font-semibold`}
-                >
-                  {t.avatar}
+              <Sparkles className="w-4 h-4" />
+              A Note from Our Team
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : {}}
+              transition={{ delay: 0.4 }}
+              className="space-y-6"
+            >
+              <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
+                We're a new firm, and we know that means we have to work twice as hard
+                to earn your trust. We don't have hundreds of testimonials yet — but
+                we have a dedicated team that treats every single client like our first
+                and most important one. Your business deserves that kind of attention.
+              </p>
+
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ delay: 0.5 }}
+                className="flex items-center gap-4 pt-6 border-t border-white/[0.06]"
+              >
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-cyan-500 flex items-center justify-center text-white font-bold text-xl">
+                  LB
                 </div>
                 <div>
-                  <div className="text-white font-semibold">{t.name}</div>
-                  <div className="text-sm text-gray-500">{t.role}</div>
+                  <div className="text-white font-semibold text-lg">The LocalBoost Team</div>
+                  <div className="text-sm text-gray-500">Building something great, one business at a time</div>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
-          ))}
-        </div>
+
+            {/* Values */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.6 }}
+              className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10"
+            >
+              {[
+                {
+                  icon: <Heart className="w-6 h-6" />,
+                  title: 'Passionate',
+                  desc: 'We genuinely care about your growth',
+                },
+                {
+                  icon: <Clock className="w-6 h-6" />,
+                  title: 'Responsive',
+                  desc: 'Fast replies, real human support',
+                },
+                {
+                  icon: <Target className="w-6 h-6" />,
+                  title: 'Focused',
+                  desc: 'Every strategy custom-built for you',
+                },
+              ].map((value) => (
+                <motion.div
+                  key={value.title}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: 0.7 }}
+                  className="bg-white/[0.02] border border-white/[0.04] rounded-xl p-5 hover:border-white/[0.08] transition-colors"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-violet-500/10 flex items-center justify-center text-violet-400 mb-3">
+                    {value.icon}
+                  </div>
+                  <h3 className="text-white font-semibold mb-1">{value.title}</h3>
+                  <p className="text-sm text-gray-500">{value.desc}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
